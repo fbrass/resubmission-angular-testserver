@@ -1,0 +1,64 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'connect' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose cache add [ 'connect', null ]
+6 verbose cache add name=undefined spec="connect" args=["connect",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'connect',
+7 verbose parsed url   path: 'connect',
+7 verbose parsed url   href: 'connect' }
+8 silly lockFile f11a107f-connect connect
+9 verbose lock connect C:\Users\weiky\AppData\Roaming\npm-cache\f11a107f-connect.lock
+10 silly lockFile f11a107f-connect connect
+11 silly lockFile f11a107f-connect connect
+12 verbose addNamed [ 'connect', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 6c45e0f3-connect connect@
+15 verbose lock connect@ C:\Users\weiky\AppData\Roaming\npm-cache\6c45e0f3-connect.lock
+16 silly addNameRange { name: 'connect', range: '*', hasData: false }
+17 verbose request where is /connect
+18 verbose request registry https://registry.npmjs.org/
+19 verbose request id e92d6080ad9f51b1
+20 verbose url raw /connect
+21 verbose url resolving [ 'https://registry.npmjs.org/', './connect' ]
+22 verbose url resolved https://registry.npmjs.org/connect
+23 verbose request where is https://registry.npmjs.org/connect
+24 info trying registry request attempt 1 at 14:17:01
+25 http GET https://registry.npmjs.org/connect
+26 info retry will retry, error on last attempt: Error: connect ETIMEDOUT
+27 info trying registry request attempt 2 at 14:17:38
+28 http GET https://registry.npmjs.org/connect
+29 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND
+30 info trying registry request attempt 3 at 14:18:50
+31 http GET https://registry.npmjs.org/connect
+32 silly lockFile 6c45e0f3-connect connect@
+33 silly lockFile 6c45e0f3-connect connect@
+34 error network getaddrinfo ENOTFOUND
+34 error network This is most likely not a problem with npm itself
+34 error network and is related to network connectivity.
+34 error network In most cases you are behind a proxy or have bad network settings.
+34 error network
+34 error network If you are behind a proxy, please make sure that the
+34 error network 'proxy' config is set properly.  See: 'npm help config'
+35 error System Windows_NT 6.1.7601
+36 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "connect"
+37 error cwd C:\projects\killerapp\server
+38 error node -v v0.10.32
+39 error npm -v 1.4.28
+40 error syscall getaddrinfo
+41 error code ENOTFOUND
+42 error errno ENOTFOUND
+43 verbose exit [ 1, true ]

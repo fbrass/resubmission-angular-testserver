@@ -1,0 +1,103 @@
+<div class="page-header">
+    <h1>{{customer.companyName}} <small>Customer Details</small></h1>
+</div>
+
+<div class="container-fluid">
+    <div ng-if="customer.imageUrl">
+        <img ng-src="{{customer.imageUrl}}"/>
+    </div>
+
+    <p>{{customer.description}}</p>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Action <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#/edit-customer/{{customer.id}}">Edit</a></li>
+            <li><a href="#" onclick="alert('Not yet'); return false;">Archive</a></li>
+            <li class="divider"></li>
+            <li><a ng-click="openDeleteCustomerModal()">Delete customer</a></li>
+        </ul>
+    </div>
+
+    <div class="clearfix" style="margin-bottom:2em"></div>
+
+    <div>
+        <script type="text/ng-template" id="myModalContent.html">
+            <div class="modal-header">
+                <h3 class="modal-title">Delete customer?</h3>
+            </div>
+            <div class="modal-body">
+                All data of <strong>{{customer.companyName}}</strong> will be lost!</strong>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+                <button class="btn btn-danger" ng-click="ok()">OK</button>
+            </div>
+        </script>
+    </div>
+
+    <div class="legend-container" >
+        <span class="the-legend">New resubmission</span>
+
+        <form name="resubform" role="form" novalidate="novalidate">
+            <div id="resubmissionNoteGroup" class="form-group"
+                 ng-class="{'has-error':resubform.note.$invalid && !resubform.note.$pristine}">
+                <label for="note0" class="control-label">Note</label>
+                <textarea ng-model="resub.note" required="required" id="note0" name="note" rows="3"
+                          class="form-control" placeholder="Note" autofocus="autofocus"></textarea>
+                <span ng-show="resubform.note.$invalid && !resubform.note.$pristine" class="help-block">
+                    Note is required
+                </span>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error':resubform.dueDate.$invalid}">
+                <label for="myDueDate">Due</label>
+                <div class="input-group">
+                    <input type="text" id="myDueDate" name="dueDate" class="form-control"
+                            ng-model="resub.due" datepicker-popup="yyyy-MM-dd" is-open="opened"
+                            min-date="minDate" datepicker-options="dateOptions" show-button-bar="false"
+                            ng-required="true"  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default"
+                                ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+                <span ng-show="resubform.dueDate.$invalid" class="help-block">
+                    Due date is required
+                </span>
+            </div>
+
+            <button ng-click="createResubmission(resub)" ng-disabled="resubform.$invalid" type="submit"
+                class="btn btn-primary">Create</button>
+        </form>
+    </div>
+
+    <div ng-if="customer.resubmissions" class="legend-container" style="margin-top:2em">
+        <span class="the-legend">History</span>
+        <div class="table-responsive">
+            <table class="table table-striped customer-resubmission-items">
+                <thead>
+                    <tr>
+                        <th>Note</th>
+                        <th>Due</th>
+                        <th>Active</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="h in customer.resubmissions" ng-class="{'info':h.active}">
+                        <td class="col1">{{h.note}}</td>
+                        <td class="col2">{{h.due | date : 'yyyy-MM-dd'}}</td>
+                        <td class="col3" ng-class="{'info':h.active}">
+                            <span ng-if="h.active">
+                                <a ng-click="markDone(h)">Done</a>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

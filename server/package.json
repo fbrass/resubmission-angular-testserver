@@ -1,0 +1,24 @@
+{
+  "name": "resubmissionar-json-server",
+  "version": "1.0.0",
+  "description": "server for testing the fronend in resubmissionar angular",
+  "main": "server.js",
+  "dependencies": {
+    "connect": "^2.27.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fbrass/resubmission-angular-testserver"
+  },
+  "author": "fbrass",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fbrass/resubmission-angular-testserver/issues"
+  },
+  "homepage": "https://github.com/fbrass/resubmission-angular-testserver"
+}

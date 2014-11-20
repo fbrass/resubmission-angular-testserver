@@ -1,0 +1,47 @@
+<div class="page-header">
+    <h1>Customers</h1>
+</div>
+
+<div class="container-fluid">
+    <div class="col-xs-12 col-md-8 customer-list">
+        <form ng-submit="search()" class="form-inline" role="form" style="margin: .3em 0 3em 0">
+            <div class="form-group">
+                <label class="sr-only">Search</label>
+                <div class="input-group">
+                    <input ng-model="paginationInfo.searchText" ng-keyup="search()" ng-minlength="2" type="text"
+                           class="form-control" placeholder="Customer search" autofocus="autofocus" size="50"/>
+                    <span class="input-group-btn">
+                        <button type="submit" ng-disabled="!isSeachEnabled()" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </form>
+
+        <div class="btn-toolbar" role="toolbar" style="margin: 1em 0">
+            <div class="btn-group">
+                <button ng-click="paginatePrev()" ng-disabled="!paginationInfo.hasPrev"
+                        class="btn btn-default">Prev</button>
+                <button ng-click="paginateNext()" ng-disabled="!paginationInfo.hasNext"
+                        class="btn btn-default">Next</button>
+            </div>
+        </div>
+
+        <ul>
+            <li ng-repeat="c in customers">
+                <a href="#/customers/{{c.id}}">{{c.companyName}}</a>
+            </li>
+        </ul>
+
+        <div class="btn-group">
+            <button ng-click="paginatePrev()" ng-disabled="!paginationInfo.hasPrev"
+                    class="btn btn-default">Prev</button>
+            <button ng-click="paginateNext()" ng-disabled="!paginationInfo.hasNext"
+                    class="btn btn-default">Next</button>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-4">
+        <p class="text-right">
+            <a href="#/create-customer">Create Customer</a>
+        </p>
+    </div>
+</div>
